@@ -4,3 +4,4 @@ torch==2.4.1
 gdown
 nltk
 rouge
+sentencepiece       
