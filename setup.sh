@@ -6,7 +6,7 @@ email = \"your-email@domain.com\"\n\
 " > ~/.streamlit/credentials.toml
 
 echo "\
-[server]\n\
+[server]\n\ 
 headless = true\n\
 port = $PORT\n\
 enableCORS = false\n\
