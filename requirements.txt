@@ -3,5 +3,5 @@ transformers==4.45.1
 torch==2.4.1
 gdown
 nltk
-rouge
+rouge 
 sentencepiece       
