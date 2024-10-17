@@ -23,17 +23,18 @@ def download_model():
     safetensors_url = 'https://drive.google.com/uc?id=1KHT-KLVTC2Liyhob5lGQP4r0BOdHVlmf'  # Direct download URL for safetensors
 
     # Paths
-    model_file = os.path.join(model_path, 'pytorch_model.bin')  # Change this to the expected filename
+    model_file = os.path.join(model_path, 'pytorch_model.bin')
     spiece_file = os.path.join(model_path, 'spiece.model')
     config_file = os.path.join(model_path, 'config.json')
     tokenizer_file = os.path.join(model_path, 'tokenizer_config.json')
     safetensors_file = os.path.join(model_path, 'model.safetensors')
 
-    # Function to download files with check
+    # New safe_download function
     def safe_download(url, destination):
+        # Check if file exists
         if os.path.exists(destination):
-            print(f"File {destination} already exists. Deleting it before re-download.")
-            os.remove(destination)  # Remove the existing file before downloading
+            # st.warning(f"File {destination} already exists. Skipping download.")
+            return
         gdown.download(url, destination, quiet=False)
 
     # Download files
@@ -41,7 +42,7 @@ def download_model():
     safe_download(spiece_url, spiece_file)
     safe_download(config_url, config_file)
     safe_download(tokenizer_url, tokenizer_file)
-    safe_download(safetensors_url, safetensors_file)  # Download the safetensors file
+    safe_download(safetensors_url, safetensors_file)
 
 # Call the download_model function to create the directory and download the model files
 download_model()
@@ -129,3 +130,4 @@ st.sidebar.write(f"**ROUGE-L Score:** {rouge_l:.4f}")
 # Footer for additional information
 st.markdown("---")
 st.write("This app uses a fine-tuned T5 model for text correction.")
+
