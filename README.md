@@ -1,5 +1,5 @@
 # Application de Correction de Texte
-
+ 
 Cette fiche de documentation présente l'application Streamlit qui utilise un modèle T5 fine-tuné pour corriger les erreurs grammaticales dans un texte saisi. Elle fournit une interface conviviale permettant aux utilisateurs d'entrer du texte et de recevoir les corrections en temps réel.
 
 ## Fonctionnalités
